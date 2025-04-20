@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../App.css'
+import { Link } from "react-router-dom";
  
 
 const CoursesByPrice = () => {
@@ -50,7 +51,7 @@ const CoursesByPrice = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Courses by Price 🎓</h1>
+      <h1 className="title">🎓Courses🎓</h1>
 
       <div className="dropdown-container">
         <label>Select a Price Range: </label>
@@ -68,11 +69,13 @@ const CoursesByPrice = () => {
       {error && <p className="error">{error}</p>}
 
       <div className="course-list">
-        {filteredCourses.length > 0 ? (
-          filteredCourses.map((course) => (
+        {courses.length > 0 ? (
+          courses.map((course) => (
             <div key={course.id} className="course-card">
               <h2>{course.name}</h2>
               <p>💵 ${course.price}</p>
+              <Link to={`/courses/${courses.id}`} className="c-link">
+              </Link>
             </div>
           ))
         ) : (
@@ -80,6 +83,7 @@ const CoursesByPrice = () => {
         )}
       </div>
     </div>
+
   );
 };
 

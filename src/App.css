@@ -36,3 +36,277 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dropdown-container {
+  margin-bottom: 1.5rem;
+}
+
+select {
+  padding: 8px;
+  font-size: 1rem;
+}
+
+.course-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.course-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.loading,
+.error,
+.no-data {
+  text-align: center;
+  font-size: 1.2rem;
+} 
+ 
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(to bottom right, #f0f8ff, #e0f7fa);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+ 
+.title {
+  text-align: center;
+  color: #3f51b5;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+ 
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+select {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #3f51b5;
+  background-color: #fff;
+  color: #3f51b5;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+select:hover {
+  border-color: #1e88e5;
+}
+ 
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+ 
+.course-card {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.course-card h2 {
+  margin: 0 0 10px;
+  color: #d84315;
+  font-size: 1.3rem;
+}
+
+.course-card p {
+  font-size: 1.1rem;
+  color: #4a148c;
+  font-weight: bold;
+}
+ 
+.loading,
+.error,
+.no-data {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.loading {
+  color: #0288d1;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.no-data {
+  color: #616161;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+li {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  margin: 20px 0;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.03);
+}
+
+strong a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+strong a:hover {
+  text-decoration: underline;
+}
+
+p a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/*CoursesById.css*/
+.courses-detail-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.back-button {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.back-button:hover {
+  background-color: #ddd;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.reviews-section, .add-review-section {
+  margin-top: 30px;
+}
+
+.review-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.review-card p {
+  margin: 5px 0;
+}
+
+.add-review-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-review-section input,
+.add-review-section select,
+.add-review-section textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.add-review-section button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-review-section button:hover {
+  background-color: #0056b3;
+}
