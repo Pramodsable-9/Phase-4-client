@@ -1,8 +1,10 @@
+ 
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import '../App.css'
+import '../App.css';
 import { Link } from "react-router-dom";
- 
 
 const CoursesByPrice = () => {
   const [courses, setCourses] = useState([]);
@@ -11,21 +13,25 @@ const CoursesByPrice = () => {
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
- 
+
+  // Function to determine the price range
   const getPriceRange = (price) => {
     if (price < 100) return "Under $100";
     if (price >= 100 && price <= 500) return "$100 - $500";
-    if (price >=500 && price <= 1100) return "$500 - $1100";
-     
+    if (price > 500 && price <= 1100) return "$500 - $1100";
+    if (price > 1100) return "Above $1100";
+    return "Unknown";
   };
 
+  // Fetch courses
   useEffect(() => {
     axios
       .get("http://localhost:5400/courses")
       .then((response) => {
         if (response.data && Array.isArray(response.data)) {
           const allCourses = response.data;
-          setCourses(allCourses); 
+          setCourses(allCourses);
+          setFilteredCourses(allCourses); // Initially display all courses
           const ranges = [
             ...new Set(allCourses.map((course) => getPriceRange(course.price))),
           ];
@@ -38,25 +44,28 @@ const CoursesByPrice = () => {
       });
   }, []);
 
+  // Handle price range selection
   const handlePriceRangeChange = (event) => {
     const range = event.target.value;
     setSelectedRange(range);
     setLoading(true);
     setError(null);
 
-    const filtered = courses.filter((course) => getPriceRange(course.price) == range);
+    const filtered = courses.filter(
+      (course) => getPriceRange(course.price) === range
+    );
     setFilteredCourses(filtered);
     setLoading(false);
   };
 
   return (
     <div className="container">
-      <h1 className="title">🎓Courses🎓</h1>
+      <h1 className="title">🎓 Courses 🎓</h1>
 
       <div className="dropdown-container">
         <label>Select a Price Range: </label>
         <select onChange={handlePriceRangeChange} value={selectedRange}>
-          <option value="">-- Select --</option>
+          <option value="">-- All Prices --</option>
           {priceRanges.map((range, index) => (
             <option key={index} value={range}>
               {range}
@@ -69,12 +78,13 @@ const CoursesByPrice = () => {
       {error && <p className="error">{error}</p>}
 
       <div className="course-list">
-        {courses.length > 0 ? (
-          courses.map((course) => (
+        {filteredCourses.length > 0 ? (
+          filteredCourses.map((course) => (
             <div key={course.id} className="course-card">
               <h2>{course.name}</h2>
               <p>💵 ${course.price}</p>
-              <Link to={`/courses/${courses.id}`} className="c-link">
+              <Link to={`/courses/${course.id}`} className="c-link">
+                View Details
               </Link>
             </div>
           ))
@@ -83,7 +93,6 @@ const CoursesByPrice = () => {
         )}
       </div>
     </div>
-
   );
 };
 
